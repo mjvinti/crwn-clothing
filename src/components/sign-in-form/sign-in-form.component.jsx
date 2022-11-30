@@ -4,7 +4,6 @@ import Button from "../button/button.componet";
 import FormInput from "../form-input/form-input.component";
 
 import {
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from "../../routes/utils/firebase/firebase.utils";
