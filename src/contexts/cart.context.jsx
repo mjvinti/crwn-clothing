@@ -1,16 +1,13 @@
 import { createContext, useState } from "react";
 
 const addCartItem = (cartItems, product) => {
-  const existingCartItem = cartItems.find(
+  const existingCartItemIdx = cartItems.findIndex(
     (cartItem) => cartItem.id === product.id
   );
 
-  if (existingCartItem) {
-    return cartItems.map((cartItem) =>
-      cartItem.id === product.id
-        ? { ...cartItem, quantity: cartItem.quantity + 1 }
-        : cartItem
-    );
+  if (existingCartItemIdx !== -1) {
+    cartItems[existingCartItemIdx].quantity += 1;
+    return [...cartItems];
   }
 
   return [...cartItems, { ...product, quantity: 1 }];
